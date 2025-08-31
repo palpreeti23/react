@@ -12,7 +12,7 @@ function customRender(renderElement, container){
     let domRender = document.createElement(renderElement.type);
     domRender.innerHTML = renderElement.Children;
     for (const prop in renderElement.props) {
-        if(prop === 'children')continue;
+        // if(prop === 'children')continue;
        domRender.setAttribute(prop, renderElement.props[prop])
         }
         container.appendChild(domRender)
