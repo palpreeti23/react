@@ -9,11 +9,18 @@ function App() {
 
 
     let addValue = ()=>{
-      if(counter != 20){
-
-        setCounter(counter + 1)
-      }
-     
+     if(counter != 20){
+      // setCounter(counter+1)
+       // setCounter(counter+1)
+        // setCounter(counter+1)
+        // wont work coz it increment the some counter value
+        setCounter(prevCounter => prevCounter + 1)
+         setCounter(prevCounter => prevCounter + 1)
+         setCounter(prevCounter => prevCounter + 1)
+          setCounter(prevCounter => prevCounter + 1)
+          //increase value by 4 in one click || not optimized method but just for knowledge
+          //its bcoz of usestate bcoz it sends value in batches to ui for update
+     }  
     }
 
     let removeValue = ()=>{
