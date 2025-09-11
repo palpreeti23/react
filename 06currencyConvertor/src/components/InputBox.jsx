@@ -79,7 +79,7 @@ function InputBox({
   return (
 
     <div className='flex mb-3'>
-      <div className='flex flex-col bg-white rounded-l-lg p-4'>
+      <div className='flex flex-col bg-white rounded-l-lg p-4 flex-wrap'>
         <label 
         htmlFor='myAmountId'
         className='text-gray-500'>{label}</label>
@@ -95,7 +95,7 @@ function InputBox({
         />
       </div>
 
-      <div className='flex flex-col bg-white rounded-r-lg p-2 justify-end
+      <div className='flex flex-col flex-wrap bg-white rounded-r-lg p-2 justify-end
         items-end '>
         <p className='text-gray-500'>currency type</p>
         <select className='outline-none mt-2 font-base bg-gray-200 rounded-lg w-[70%]'

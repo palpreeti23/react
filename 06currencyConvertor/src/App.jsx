@@ -100,24 +100,27 @@ function App() {
   const currencyInfo = useCurrencyInfo(from)
   const options = Object.keys(currencyInfo);
 
-  const swap = ()=>{
+  const swap = () => {
     setFrom(to)
     setTo(from)
     setAmount(convertedAmount)
     setConvertedAmount(amount)
   }
 
-  const convert = ()=>{
-setConvertedAmount(amount*currencyInfo[to])
+  const convert = () => {
+    setConvertedAmount(amount * currencyInfo[to])
   }
+
 
   return (
 
-    <div className='w-full h-screen bg-cover bg-no-repeat flex flex-wrap justify-center items-center'
-      style={{ backgroundImage: `url('https://images.pexels.com/photos/1114624/pexels-photo-1114624.jpeg')` }}
-    >
-      <div className=' rounded-xl p-4 flex flex-col justify-center items-center border-2 border-gray-400 bg-white/40'>
-       <form
+
+    <div className='flex h-screen w-full flex-wrap '>
+      <div className='w-[50%] h-screen bg-cover bg-no-repeat flex flex-wrap justify-center items-center '
+        style={{ backgroundImage: `url('https://images.pexels.com/photos/1114624/pexels-photo-1114624.jpeg')` }}
+      >
+        <div className=' rounded-xl p-4 flex flex-col justify-center items-center border-2 flex-wrap border-gray-400 bg-white/40'>
+          <form
             onSubmit={(e) => {
               e.preventDefault();
               convert()
@@ -125,41 +128,45 @@ setConvertedAmount(amount*currencyInfo[to])
             }}
           >
 
-          <InputBox
-            label='from'
-            amount={amount}
-            selectCurrency={from}
-            currencyOption={options}
-            onCurrencyChange={(currency)=>setAmount(amount)}
-            onAmountChange={(amount)=>setAmount(amount)}
-          />
-    
-        <button 
-        type='button'
-        className='bg-blue-600 text-center text-white py-1 px-4 font-semibold border-2 border-blue-50 rounded-lg absolute mx-32 -translate-y-6'
-        onClick={swap}
-        >swap</button>
+            <InputBox
+              label='from'
+              amount={amount}
+              selectCurrency={from}
+              currencyOption={options}
+              onCurrencyChange={(currency) => setAmount(amount)}
+              onAmountChange={(amount) => setAmount(amount)}
+            />
 
-          <InputBox
-            label='to'
-            amount={convertedAmount}
-            selectCurrency={to}
-            currencyOption={options}
-            onCurrencyChange={(currency)=>setTo(amount)}
-            amountDisable
-            
-          />
-    
-        <button
-          type="submit"
-          className='bg-blue-600 text-center py-2 w-full text-white rounded-lg mt-4'
-          >convert {from.toUpperCase()} to {to.toUpperCase()}</button>
-      
-      </form>
+            <button
+              type='button'
+              className='bg-blue-600 text-center text-white py-1 px-4 font-semibold border-2 border-blue-50 rounded-lg absolute mx-32 -translate-y-6'
+              onClick={swap}
+            >swap</button>
+
+            <InputBox
+              label='to'
+              amount={convertedAmount}
+              selectCurrency={to}
+              currencyOption={options}
+              onCurrencyChange={(currency) => setTo(amount)}
+              amountDisable
+
+            />
+
+            <button
+              type="submit"
+              className='bg-blue-600 text-center py-2 w-full text-white rounded-lg mt-4'
+            >convert {from.toUpperCase()} to {to.toUpperCase()}</button>
+
+          </form>
+        </div>
       </div>
-       
-    </div>
 
+       <div className=' w-[50%] h-screen bg-cover bg-no-repeat justify-end items-end '
+         style={{ backgroundImage: `url("https://images.pexels.com/photos/1114627/pexels-photo-1114627.jpeg")` }}>
+       </div> 
+
+     </div>
   )
 }
 
