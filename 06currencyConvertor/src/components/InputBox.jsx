@@ -1,4 +1,5 @@
 import React, { useId } from "react";
+import useCurrencyInfo from "../hooks/useCurrencyInfo";
 
 
 function InputBox({
@@ -43,7 +44,7 @@ function InputBox({
                     value={selectCurrency}
                     onChange={(e)=> onCurrencyChange && onCurrencyChange(e.target.value)}
                 >
-                   {currency.map((currency)=>(
+                   {currencyOption.map((currency)=>(
                        
                         <option key={currency} value={currency}>
                             {currency}
