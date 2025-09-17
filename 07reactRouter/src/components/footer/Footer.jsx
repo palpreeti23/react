@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useMatch } from "react-router-dom";
 
 export default function Footer() {
+    const homeMatch = useMatch('/');
+     const aboutMatch = useMatch('/About');
     return (
         <footer className="bg-white border-y">
             <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
@@ -19,12 +21,12 @@ export default function Footer() {
                             <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Resources</h2>
                             <ul className="text-gray-500 font-medium">
                                 <li className="mb-4">
-                                    <Link to="/" className="hover:underline">
+                                    <Link to="/" className ={`hover:underline ${homeMatch? 'text-orange-600' : 'text-gray-500'}`}>
                                         Home
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/about" className="hover:underline">
+                                    <Link to="/about" className ={`hover:underline ${aboutMatch? 'text-orange-600' : 'text-gray-500'}`}>
                                         About
                                     </Link>
                                 </li>
