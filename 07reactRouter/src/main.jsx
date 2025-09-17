@@ -5,8 +5,10 @@ import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Layout from './Layout.jsx'
 import Home from './components/home/Home.jsx'
-import About from './components/About/About.jsx'
-import Contact from './components/Contact/Contact.jsx'
+import About from './components/about/About.jsx'
+import Contact from './components/contact/Contact.jsx'
+import Github, { githubInfoLoader } from './components/github/Github.jsx'
+import User from './components/user/User.jsx'
 
 const router = createBrowserRouter([
   {
@@ -19,14 +21,22 @@ const router = createBrowserRouter([
       },
       {
         path : 'about',
-        element : <About />
+        element : <About />,
       }
       ,
       {
         path : 'contact',
         element : <Contact />
+      },
+      {
+        loader: githubInfoLoader,
+        path : 'github',
+        element : <Github />
+      },
+      {
+        path : 'user/:userId',
+        element : <User />
       }
-
     ]
   }
 ])
