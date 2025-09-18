@@ -6,6 +6,7 @@ import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } 
 import Layout from './Layout.jsx'
 import { Home, About, Contact, Github, User } from './components/index.js'
 import { githubInfoLoader } from './components/github/Github.jsx'
+import ErrorPage from './ErrorPage.jsx'
 
 // import Home from './components/home/Home.jsx'
 // import About from './components/about/About.jsx'
@@ -46,7 +47,7 @@ import { githubInfoLoader } from './components/github/Github.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path='/' element={<Layout />}>
+    <Route path='/' element={<Layout />} errorElement={<ErrorPage />}>
       <Route path='' element={<Home />} />
       <Route path='about' element={<About />} />
       <Route path='contact' element={<Contact />} />
