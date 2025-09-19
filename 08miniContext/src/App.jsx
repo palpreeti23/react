@@ -1,15 +1,18 @@
 import { useState } from 'react'
 import './App.css'
-import userContextProvider from './context/UserContextProvider'
+import UserContextProvider from './context/UserContextProvider'
+import Login from './components/Login'
+import Profile from './components/Profile'
 
 function App() {
 
 
   return (
-    <userContextProvider>
+    <UserContextProvider>
       <div>preeti with context API</div>
-      
-    </userContextProvider>
+      <Login />
+      <Profile />
+    </UserContextProvider>
   )
 }
 
