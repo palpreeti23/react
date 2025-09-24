@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import ThemeProvider from './context/theme'
+import {ThemeProvider} from './context/theme'
 import './App.css'
 import ThemeButton from './components/ThemeButton'
 import Card from './components/Card'
