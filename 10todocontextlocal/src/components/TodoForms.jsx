@@ -4,7 +4,7 @@ import { useTodo } from "../context/TodoContext";
 
 export default function TodoForms(){
 
-    const [todo, setTodo] = useState([]);
+    const [todo, setTodo] = useState('');
     const {addTodo} = useTodo();
 
     const add =(e)=>{
@@ -12,7 +12,7 @@ export default function TodoForms(){
         e.preventDefault();
         if(!todo) return 
 
-        addTodo({todo, completed : false})
+        addTodo({ id : Date.now(),todo:todo, completed : false})
         setTodo('')
     }
      return (

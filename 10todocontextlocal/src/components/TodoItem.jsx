@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useTodo } from "../context/TodoContext";
 
-export default function TodoItem(todo){
+    export default function TodoItem({todo}){
 
 
     const [isTodoEditable, setIsTodoEditable] = useState(false)
@@ -16,7 +16,6 @@ export default function TodoItem(todo){
     const toggleCompleted = ()=>{
         toggleComplete(todo.id)
     }
-
 
     return (
         <div
@@ -46,7 +45,7 @@ export default function TodoItem(todo){
                     if (todo.completed) return;
 
                     if (isTodoEditable) {
-                        updateTodo();
+                        editTodo();
                     } else setIsTodoEditable((prev) => !prev);
                 }}
                 disabled={todo.completed}
