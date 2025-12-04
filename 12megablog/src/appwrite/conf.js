@@ -1,4 +1,4 @@
-import {config} from '../config'
+import config from '../config'
 import {Client, ID, Databases, Storage, Query} from 'appwrite'
 
 export class Services {
@@ -9,8 +9,9 @@ export class Services {
 
      constructor(){
         this.client
-             .setProject(config.appwriteUrl) 
-             .setEndpoint(config.appwriteProjectId);
+             .setEndpoint(config.appwriteUrl)
+             .setProject(config.appwriteProjectId); 
+             
              const databases = new Databases(this.client);
              const bucket = new Storage(this.client)
      }
