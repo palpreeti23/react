@@ -51,8 +51,6 @@ import { Client, Account, ID } from "appwrite";
             console.log("appwrite service :: getCurrentUser :: error", error);
             return null;
         }
-       
-       
      }
 
      async logOut(){
