@@ -58,6 +58,7 @@ function Login() {
                      className="mt-8"
                      >
                         <div className="space-y-5">
+                    
                             <Input 
                             type="email:"
                             lable="Email"
@@ -71,6 +72,7 @@ function Login() {
                                 }
                             })}
                             />
+
                             <Input 
                             type="password"
                             lable="password"
