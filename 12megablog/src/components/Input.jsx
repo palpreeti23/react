@@ -8,7 +8,8 @@ const Input = React.forwardRef(function Input({
     ...props
 
 },ref){
-
+    const id = useId()
+    return(
     <div className="w-full">
       {lable && <lable className="inline-block mb-1 pl-1"
        htmlFor={id}
@@ -23,7 +24,7 @@ const Input = React.forwardRef(function Input({
          id={id}
          />
     </div>
-
+    )
 })
 
-export default Input;
+export default Input
