@@ -55,7 +55,7 @@ import { Client, Account, ID } from "appwrite";
 
      async logOut(){
         try {
-            await this.account.deleteSessions()
+           await this.account.deleteSessions()
         } catch (error) {
             throw error
         }

@@ -1,6 +1,6 @@
 import React, { use, useCallBacks, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Button, Input, Select, RTE } from './index'
+import { Button, Input, RTE , Select} from '../index'
 import appwriteService from '../../appwrite/conf'
 import { useSelector } from 'react-redux'
 import { useForm } from "react-hook-form"
@@ -21,7 +21,7 @@ function PostForm() {
 
   const submit = async (data) => {
     if (post) {
-      const file = data.image[0] ? appwriteService.uploadFile(data.image[0]) : null,
+      const file = data.image[0] ? appwriteService.uploadFile(data.image[0]) : null
 
 
       if (file) {

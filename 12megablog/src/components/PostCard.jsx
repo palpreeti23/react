@@ -1,5 +1,5 @@
 import React from "react";
-import {authService} from '../appwrite/auth'
+import authService from '../appwrite/auth'
 import appwriteService from '../appwrite/conf'
 import {Link} from 'react-router-dom'
 
