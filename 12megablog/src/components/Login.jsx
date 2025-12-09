@@ -67,7 +67,7 @@ function Login() {
                                 required: true,
                                 validate:{
                                     matchPatern: (value)=>/^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$/.
-                                    test(v) || 
+                                    test(value) || 
                                     "email address must be a validate address"
                                 }
                             })}

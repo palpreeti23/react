@@ -6,7 +6,14 @@ import store from './store/store.js'
 import {Provider} from 'react-redux'
 import Login from './components/Login.jsx'
 import Signup from './components/Signup.jsx'
+import AllPosts from "./pages/AllPosts.jsx"
+import AddPost from "./pages/AddPost.jsx"
+import EditPost from "./pages/EditPost.jsx"
 import Post from './pages/Post.jsx'
+import Home from "./pages/Home.jsx"
+import { AuthLayout } from './components/index.js'
+import { createBrowserRouter } from 'react-router-dom'
+import { RouterProvider } from 'react-router-dom'
 
 const router = createBrowserRouter([
   {
@@ -33,7 +40,7 @@ const router = createBrowserRouter([
     },{
        path: "/all-post",
        element: (
-        <AuthLayout  authentication>
+        <AuthLayout authentication>
           {" "}
          <AllPosts/>
         </AuthLayout>

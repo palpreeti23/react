@@ -17,11 +17,11 @@ import { Client, Account, ID } from "appwrite";
 
      async createAccount({email, password, name}){
         try {
-           const userAccount =  await this.account.create(ID.unique, email, password, name)
+           const userAccount =  await this.account.create(ID.unique(), email, password, name);
 
            if(userAccount){
             //another method
-            return this.login({email, password})
+            return this.login({email, password});
 
            }else{
             return userAccount;
