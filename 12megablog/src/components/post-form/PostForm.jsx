@@ -7,14 +7,13 @@ import { useForm } from "react-hook-form"
 
 
 function PostForm({ post }) {
-
   const { register, handleSubmit, watch, setValue, control, getValues } = useForm({
     defaultValues: {
       title: post?.title || '',
-      slug: post?.slug || '',
+      slug: post?.$id || '',
       content: post?.content || '',
       status: post?.status || 'active'
-    }
+  }   
   })
 
      const navigate = useNavigate();
@@ -65,7 +64,6 @@ function PostForm({ post }) {
 
   }, [])
 
-
   useEffect(() => {
     const subscription = watch((value, { name }) => {
       if (name === "title") {
@@ -105,7 +103,7 @@ function PostForm({ post }) {
         <Input
           label="Featured Image :"
           type="file"
-          className="mb-4"
+          className="mb-4 w-full h-auto rounded-xl"
           accept="image/png, image/jpg, image/jpeg, image/gif"
           {...register("image")}
         />
@@ -135,3 +133,4 @@ function PostForm({ post }) {
 }
 
 export default PostForm
+

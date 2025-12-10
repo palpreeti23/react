@@ -1,51 +1,54 @@
 import React, { useState, useEffect } from 'react'
-import {Link, useNavigate, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import { useSelector } from 'react-redux'
 import parse from "html-react-parser"
+import { Container, Button } from "../components"
 import appwriteService from "../appwrite/conf"
 
+
 function Post() {
-    const [posts, setPosts] = useState([])
+    const [posts, setPosts] = useState(null)
     const navigate = useNavigate()
-    const {slug} = useParams()
+    const { slug } = useParams()
     const userData = useSelector((state) => state.auth.userData)
-    const isAuthor = posts && userData ? posts.$id === userData.id : false
+    const isAuthor = posts && userData ? posts.userId === userData.$id : false;
 
     useEffect(() => {
-        if (slug) {
-            appwriteService.getPost(slug).then((posts) => {
+        if (slug) {   
+            appwriteService.getPost(slug).then((posts) => {      
                 if (posts) {
-                    setPosts(posts)
+                      setPosts(posts)               
                 } else {
                     navigate("/")
                 }
-            }
-            )
+            })
         } else {
             navigate("/")
         }
-
     }, [slug, navigate])
 
-    const deletePost = ()=>{
-        appwriteService.deletePost(posts.$id).then((status)=>{
-            if(status){
-                appwriteService.deleteFile(post.featuredImage);
+    
+    const deletePost = () => {
+        appwriteService.deletePost(posts.$id).then((status) => {
+            if (status) {
+                appwriteService.deleteFile(posts.featuredImage);
                 navigate('/')
             }
         })
-
     }
 
- return posts ? (
+
+    return posts ? (
         <div className="py-8">
             <Container>
                 <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
-                    <img
+              
+                     <img
                         src={appwriteService.getFilePreview(posts.featuredImage)}
                         alt={posts.title}
-                        className="rounded-xl"
+                        className="rounded-xl w-full h-auto "
                     />
+
 
                     {isAuthor && (
                         <div className="absolute right-6 top-6">
@@ -59,16 +62,20 @@ function Post() {
                             </Button>
                         </div>
                     )}
+
                 </div>
                 <div className="w-full mb-6">
                     <h1 className="text-2xl font-bold">{posts.title}</h1>
                 </div>
                 <div className="browser-css">
                     {parse(posts.content)}
-                    </div>
+                    {/* {posts.content ? parse(posts.content) : "No content available"} */}
+                </div>
             </Container>
         </div>
     ) : null;
 }
 
 export default Post
+
+

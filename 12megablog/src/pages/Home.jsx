@@ -1,13 +1,15 @@
 import React, {useState, useEffect} from 'react'
 import appwriteService from "../appwrite/conf"
 import {Container, PostCard} from "../components"
+import { Link } from 'react-router-dom'
 
 export default function Home() {
   const [posts, setPosts] = useState([])
+  
   useEffect(()=>{
       appwriteService.getPosts().then((posts)=>{
       if(posts){
-          setPosts(posts.document)
+          setPosts(posts.documents)
     }
   }
   )
@@ -36,7 +38,7 @@ export default function Home() {
         <div className='flex flex-wrap'>
           {posts.map((posts)=>(
            <div key={posts.$id} className='p-2 w-1/4'>
-            <PostCard {...posts}/>
+               <PostCard {...posts} />    
            </div>
           ))}
         </div>
@@ -44,3 +46,4 @@ export default function Home() {
     </div>
   )
 }
+

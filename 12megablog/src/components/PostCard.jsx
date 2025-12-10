@@ -6,13 +6,18 @@ import {Link} from 'react-router-dom'
 
 function PostCard({$id, title, featuredImage}){
 
+     const imageUrl = featuredImage 
+        ? appwriteService.getFilePreview(featuredImage)
+        : "/placeholder.png"; 
+
+
     return(
 
         <Link to={`/post/${$id}`}>
             <div className="w-full bg-gray-100 rounded-xl p-4">
                 <div className="w-full mb-4 justify-center">
                     <img 
-                    src={appwriteService.getFilePreview(featuredImage)} 
+                    src={imageUrl} 
                     alt={title}
                     className="rounded-xl"
                     />

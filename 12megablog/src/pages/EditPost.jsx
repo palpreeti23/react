@@ -10,25 +10,22 @@ export default function EditPost() {
   const {slug} = useParams();
   const navigate = useNavigate()
 
-  useEffect(() => {
-
+  useEffect(() => { 
     if (slug) {
-      appwriteService.getPost(posts).then((posts) => {
+      // console.log(slug)
+      appwriteService.getPost(slug).then((posts) => {
         if (posts) {
+          
           setPosts(posts)
         }
-      }
-
-      )
+      })
     } else {
       navigate('/')
-
     }
-
   }, [slug, navigate])
+
   return posts ? (
     <div className='py-8'>
-
       <Container>
         <PostForm posts={posts}/>
       </Container>

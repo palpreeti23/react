@@ -61,10 +61,10 @@ const router = createBrowserRouter([
           < EditPost/>
         </AuthLayout>
        )
-    },{
-      path: "/post/:slug",
-      element: <Post/>
-    }
+    }, {
+            path: "/post/:slug",
+            element: <Post />,
+        },
     ]
   }
 ])
@@ -73,3 +73,5 @@ createRoot(document.getElementById('root')).render(
     <RouterProvider router={router}/>
   </Provider>
 )
+
+
