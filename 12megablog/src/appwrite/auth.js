@@ -33,14 +33,13 @@ import { Client, Account, ID } from "appwrite";
 
      }
 
-     async login({email, password}){
-
+       async login({email, password}) {
         try {
-           return await this.account.createEmailPasswordSession(email, password)
+            return await this.account.createEmailPasswordSession(email, password);
         } catch (error) {
-            throw error
+            throw error;
         }
-     }
+    }
 
      async getCurrentUser(){
 

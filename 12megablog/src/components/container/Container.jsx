@@ -2,7 +2,7 @@ import React from "react";
 
 function Container({children}){
 
-    return <div className="w-full max-h-screen mx-auto px-4">{children}</div>;
+    return <div className="w-full h-auto mx-auto px-4">{children}</div>;
     
 }
 

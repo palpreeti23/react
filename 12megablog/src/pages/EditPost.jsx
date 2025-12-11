@@ -12,7 +12,6 @@ export default function EditPost() {
 
   useEffect(() => { 
     if (slug) {
-      // console.log(slug)
       appwriteService.getPost(slug).then((posts) => {
         if (posts) {
           

@@ -134,19 +134,16 @@ export class Services {
         console.log("appwrite service :: deletePost :: error", error);
         return false
     }
-
 }
 
 getFilePreview(fileId){
 
-    return this.bucket.getFilePreview(
+    return this.bucket.getFileView(
         config.appwriteBucketId,
         fileId
     )
 }
 }
-
-
 
 const services = new Services();
 export default services;

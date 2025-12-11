@@ -10,7 +10,6 @@ function PostCard({$id, title, featuredImage}){
         ? appwriteService.getFilePreview(featuredImage)
         : "/placeholder.png"; 
 
-
     return(
 
         <Link to={`/post/${$id}`}>
@@ -19,7 +18,7 @@ function PostCard({$id, title, featuredImage}){
                     <img 
                     src={imageUrl} 
                     alt={title}
-                    className="rounded-xl"
+                    className="rounded-xl w-full h-30"
                     />
                 </div>
                <h2 className="text-xl font-bold"

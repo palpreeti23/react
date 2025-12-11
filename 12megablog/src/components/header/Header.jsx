@@ -39,7 +39,7 @@ function Header(){
 
     return(
 
-       <header className="bg-gray-300 shadow w-full">
+       <header className="bg-gray-300 shadow w-full rounded-lg">
         <Container>
             <nav className="flex">
                 <div className="mr-4">

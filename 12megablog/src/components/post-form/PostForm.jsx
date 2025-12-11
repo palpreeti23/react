@@ -103,16 +103,16 @@ function PostForm({ post }) {
         <Input
           label="Featured Image :"
           type="file"
-          className="mb-4 w-full h-auto rounded-xl"
+          className="mb-4 "
           accept="image/png, image/jpg, image/jpeg, image/gif"
           {...register("image")}
         />
         {post && (
-          <div className="w-full mb-4">
+          <div className="w-full mb-4 object-contain">
             <img
               src={appwriteService.getFilePreview(post.featuredImage)}
               alt={post.title}
-              className="rounded-lg"
+              className="rounded-lg w-full h-30 "
             />
           </div>
         )}
